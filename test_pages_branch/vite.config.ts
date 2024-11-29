@@ -12,7 +12,5 @@ export default defineConfig({
     },
     define: {
         __BRANCH_NAME__: JSON.stringify(process.env.VITE_BRANCH_NAME || 'unknown'),
-        __APP_VERSION__: JSON.stringify(process.env.VITE_APP_VERSION || '0.0.0'),
-
     }
 })

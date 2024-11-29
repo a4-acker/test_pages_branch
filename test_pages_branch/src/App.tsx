@@ -7,7 +7,7 @@ import Home from './pages/Home';
 function App() {
     const repositoryName = 'test_pages_branch/main';
     const branchName = __BRANCH_NAME__;
-    const version = __APP_VERSION__;
+    const version = '0.1.2';
     return (
         <Router basename={`/${repositoryName}`}>
             <nav>
