@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import plugin from '@vitejs/plugin-react';
 
-const repositoryName = 'test_pages_branch';
+const repositoryName = 'test_pages_branch/main';
 
 // https://vitejs.dev/config/
 export default defineConfig({

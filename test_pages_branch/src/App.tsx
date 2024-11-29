@@ -5,7 +5,7 @@ import A from './pages/A';
 import Home from './pages/Home';
 
 function App() {
-    const repositoryName = 'test_pages_branch';
+    const repositoryName = 'test_pages_branch/main';
 
     return (
         <Router basename={`/${repositoryName}`}>
