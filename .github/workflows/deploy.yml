@@ -1,34 +1,32 @@
-name: Deploy branches to gh-pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout branch
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18' # 指定 Node.js 版本
 
       - name: Install dependencies
-        run: cd test_pages_branch && npm install
+        run: npm install
+        working-directory: ./test_pages_branch # 指定包含 package.json 的子目錄
 
       - name: Build project
         run: npm run build
+        working-directory: ./test_pages_branch
 
-      - name: Deploy to gh-pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          destination_dir: ${{ github.ref_name }}
+          publish_dir: ./test_pages_branch/dist # 指定生成的靜態文件目錄
