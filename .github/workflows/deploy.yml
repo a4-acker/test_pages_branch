@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - branch-a  # 需要部署的分支
-      - branch-b  # 需要部署的分支
       - main      # 需要部署的分支
 
 jobs:
