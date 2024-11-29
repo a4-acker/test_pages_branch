@@ -3,30 +3,39 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - branch-a  # 需要部署的分支
+      - branch-b  # 需要部署的分支
+      - main      # 需要部署的分支
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      # 檢出當前分支代碼
       - name: Checkout branch
         uses: actions/checkout@v3
 
+      # 設置 Node.js 環境
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' 
+          node-version: '18'
 
+      # 安裝依賴
       - name: Install dependencies
         run: npm install
         working-directory: ./test_pages_branch 
 
+      # 編譯項目
       - name: Build project
         run: npm run build
         working-directory: ./test_pages_branch
 
+      # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 動態設置部署目錄，根據分支名稱
           publish_dir: ./test_pages_branch/dist
+          dest_dir: ${{ github.ref_name }}  # 將當前分支的構建結果部署到對應的資料夾
