@@ -5,13 +5,14 @@ import A from './pages/A';
 import Home from './pages/Home';
 
 function App() {
-    const repositoryName = 'test_pages_branch';
+    const repositoryName = 'test_pages_branch/branch-a';
 
     return (
         <Router basename={`/${repositoryName}`}>
             <nav>
                 <button><Link to="/A">Go to A</Link></button>
                 <button><Link to="/A">Go to A</Link></button>
+                <p>i'm AAAAAAAAAAAAAAAA</p>
             </nav>
             <Routes>
                 <Route path="/" element={<Home />} />
