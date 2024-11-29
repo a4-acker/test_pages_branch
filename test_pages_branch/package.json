@@ -10,7 +10,7 @@
         "lint": "eslint .",
         "preview": "vite preview",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist -b gh-pages -r https://github.com/a4-acker/test_pages_branch.git --dest master"
+        "deploy": "gh-pages -d dist"
     },
     "dependencies": {
         "react": "^18.3.1",
