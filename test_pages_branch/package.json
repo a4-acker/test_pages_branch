@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "homepage": "https://a4-acker.github.io/test_pages_branch/",
+    "homepage": "https://a4-acker.github.io/test_pages_branch/branch-a",
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
