@@ -37,4 +37,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # 動態設置部署目錄，根據分支名稱
           publish_dir: ./test_pages_branch/dist
-          dest_dir: ${{ github.ref_name }}  # 將當前分支的構建結果部署到對應的資料夾
+          destination_dir: ${{ github.ref_name }}  # 將當前分支的構建結果部署到對應的資料夾
