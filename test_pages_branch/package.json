@@ -1,7 +1,7 @@
 {
     "name": "test_pages_branch",
     "private": true,
-    "version": "0.0.0",
+    "version": "1.2.3",
     "type": "module",
     "homepage": "https://a4-acker.github.io/test_pages_branch/",
     "scripts": {

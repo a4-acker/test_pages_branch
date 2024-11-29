@@ -14,7 +14,7 @@ function App() {
                 <div>
                     <header>
                         <h1>Welcom to my App</h1>
-                        <p style={{ color: 'blue', fontWeight: 'bold' }}>
+                        <p style={{ color: 'green', fontWeight: 'bold' }}>
                             Branch: {branchName} | Version: {version}
                         </p>
                     </header>
