@@ -11,6 +11,9 @@ function App() {
         <Router basename={`/${repositoryName}`}>
             <nav>
                 <button><Link to="/A">Go to A</Link></button>
+                <button><Link to="/A">Go to A</Link></button>
+                <button><Link to="/A">Go to A</Link></button>
+                <button><Link to="/A">Go to A</Link></button>
             </nav>
             <Routes>
                 <Route path="/" element={<Home />} />

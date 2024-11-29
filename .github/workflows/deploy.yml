@@ -15,11 +15,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # 指定 Node.js 版本
+          node-version: '18' 
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./test_pages_branch # 指定包含 package.json 的子目錄
+        working-directory: ./test_pages_branch 
 
       - name: Build project
         run: npm run build
@@ -29,4 +29,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./test_pages_branch/dist # 指定生成的靜態文件目錄
+          publish_dir: ./test_pages_branch/dist
