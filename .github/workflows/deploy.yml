@@ -10,6 +10,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Set Version and Branch Name
+        run: |
+          echo VITE_BRANCH_NAME=${{ github.ref_name }} >> $GITHUB_ENV
+          echo VITE_APP_VERSION=$(node -p "require('./test_pages_branch/package.json').version") >> $GITHUB_ENV
+    
       # 檢出當前分支代碼
       - name: Checkout branch
         uses: actions/checkout@v3

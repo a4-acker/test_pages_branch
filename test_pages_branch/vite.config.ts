@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import plugin from '@vitejs/plugin-react';
-import pkg from './package.json';
 
 const repositoryName = 'test_pages_branch/main';
 
@@ -12,6 +11,8 @@ export default defineConfig({
         port: 61191,
     },
     define: {
-        __APP_VERSION__: JSON.stringify(pkg.version),
+        __BRANCH_NAME__: JSON.stringify(process.env.VITE_BRANCH_NAME || 'unknown'),
+        __APP_VERSION__: JSON.stringify(process.env.VITE_APP_VERSION || '0.0.0'),
+
     }
 })

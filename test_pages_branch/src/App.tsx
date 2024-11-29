@@ -3,19 +3,19 @@ import { BrowserRouter as Router, Link, Routes, Route, Navigate } from 'react-ro
 import './App.css'
 import A from './pages/A';
 import Home from './pages/Home';
-import { version } from 'react';
 
 function App() {
     const repositoryName = 'test_pages_branch/main';
-
+    const branchName = __BRANCH_NAME__;
+    const version = __APP_VERSION__;
     return (
         <Router basename={`/${repositoryName}`}>
             <nav>
                 <div>
                     <header>
                         <h1>Welcom to my App</h1>
-                        <p style={{ color: "green", fontWeight: "bold" }}>
-                            App Version:{version}
+                        <p style={{ color: 'blue', fontWeight: 'bold' }}>
+                            Branch: {branchName} | Version: {version}
                         </p>
                     </header>
                 </div>
