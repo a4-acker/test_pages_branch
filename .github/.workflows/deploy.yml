@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-      - branch-1
-      - branch-2
-      - branch-3
 
 jobs:
   deploy:
