@@ -21,10 +21,11 @@ const date = `${year}${month}${day}`;
  // const version = 'V0.1.9'; 從 package.json 或其他來源獲取版本
 const repositoryName = 'test_pages_branch';
 const basePath = `${repositoryName}/${date}-${version}`;
+const pagesPath = `${date}-${version}`;
 
 // 寫入 `build-metadata.json`
 const outputPath = path.resolve(__dirname, '../build-metadata.json');
-const buildMetadata = { basePath, version, date, repositoryName };
+const buildMetadata = { basePath, version, date, repositoryName, pagesPath };
 
 try {
     fs.writeFileSync(outputPath, JSON.stringify(buildMetadata, null, 2));

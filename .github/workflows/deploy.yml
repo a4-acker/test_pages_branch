@@ -27,7 +27,7 @@ jobs:
       - name: Get BASE_PATH
         id: base_path
         run: |
-          BASE_PATH=$(jq -r '.basePath' build-metadata.json)
+          BASE_PATH=$(jq -r '.pagesPath' build-metadata.json)
           echo "BASE_PATH=$BASE_PATH" >> $GITHUB_ENV
         working-directory: ./test_pages_branch
 
