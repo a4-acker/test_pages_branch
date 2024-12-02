@@ -5,9 +5,7 @@
         { "path": "./tsconfig.node.json" }
     ],
     "compilerOptions": {
-        "types": [ "node" ],
-        "outDir": "./dist",
-        "rootDir": "./"
+        "types": [ "node" ]
     }
 
 }

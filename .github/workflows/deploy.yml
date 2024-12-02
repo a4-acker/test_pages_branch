@@ -16,14 +16,15 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Export environment variables
-        run: |
-        npx tsc scripts/exportEnv.ts > env.output
-        cat env.output >> $GITHUB_ENV
-
       - name: Install dependencies
         run: npm install
         working-directory: ./test_pages_branch 
+
+      - name: Compile TypeScript (scripts/exportEnv.ts)
+        run: npx tsc scripts/exportEnv.ts
+
+      - name: Generate dynamic environment variables
+        run: node scripts/exportEnv.js # 執行已編譯的 JavaScript 腳本
 
       - name: Build project
         run: npm run build
