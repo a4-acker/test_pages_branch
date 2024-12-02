@@ -4,46 +4,34 @@ on:
     branches:
       - main      # 需要部署的分支
 
-env:
-  version: V0.0.1
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # 設置當前日期作為子目錄名的一部分
-      - name: Get current date
-        run: echo "CURRENT_DATE=$(date +'%Y%m%d')" >> $GITHUB_ENV
-
-      # 設置分支名稱作為環境變數
-      - name: Set Branch Name
-        run: echo "VITE_BRANCH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
-
-      # 檢出當前分支代碼
       - name: Checkout branch
         uses: actions/checkout@v3
 
-      # 設置 Node.js 環境
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # 安裝依賴
+      - name: Export environment variables
+        run: |
+        node scripts/exportEnv.js > env.output
+        cat env.output >> $GITHUB_ENV
+
       - name: Install dependencies
         run: npm install
         working-directory: ./test_pages_branch 
 
-      # 編譯項目
       - name: Build project
         run: npm run build
         working-directory: ./test_pages_branch
 
-      # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # 動態設置部署目錄，組合版本與日期
           publish_dir: ./test_pages_branch/dist
-          destination_dir: ${{ env.CURRENT_DATE }}-${{ env.version }}
+          destination_dir: ${{ env.BASE_PATH }}
