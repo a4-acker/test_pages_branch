@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import { basePath } from './config'; // ¤Þ¥Î°t¸m
 
 function App() {
-    const repositoryName = 'test_pages_branch/main';
     const branchName = __BRANCH_NAME__;
     const version = '0.1.2';
     return (
