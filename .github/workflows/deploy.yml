@@ -18,7 +18,7 @@ jobs:
 
       - name: Export environment variables
         run: |
-        node scripts/exportEnv.js > env.output
+        npx tsc scripts/exportEnv.ts > env.output
         cat env.output >> $GITHUB_ENV
 
       - name: Install dependencies
