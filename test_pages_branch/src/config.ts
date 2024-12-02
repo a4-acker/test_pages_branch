@@ -10,7 +10,7 @@ const getCurrentDate = (): string => {
 };
 
 // 基本配置信息
-const version = 'V0.0.1'; // 專案版本
+const version = 'V0.1.9'; // 專案版本
 const repositoryName = 'test_pages_branch'; // 專案名稱
 const date = getCurrentDate();
 
