@@ -13,7 +13,6 @@ const version = 'V0.1.9';
 const repositoryName = 'test_pages_branch'; 
 const date = getCurrentDate();
 
-// ²Õ¦X¸ô®|
 const basePath = `${repositoryName}/${date}-${version}`; 
 
 export { version, repositoryName, date, basePath };
