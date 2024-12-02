@@ -13,7 +13,6 @@ export default defineConfig({
         port: 61191,
     },
     define: {
-        __BRANCH_NAME__: JSON.stringify(process.env.VITE_BRANCH_NAME || 'unknown'),
         __BASE_PATH__: JSON.stringify(basePath),
         __BASE_VERSION__: JSON.stringify(version),
     }

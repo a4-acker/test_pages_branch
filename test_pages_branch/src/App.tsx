@@ -5,7 +5,6 @@ import A from './pages/A';
 import Home from './pages/Home';
 
 function App() {
-    const branchName = __BRANCH_NAME__;
     const basePath = __BASE_PATH__;
     const version = __BASE_VERSION__;
 
@@ -16,7 +15,7 @@ function App() {
                     <header>
                         <h1>Welcom to my App</h1>
                         <p style={{ color: 'green', fontWeight: 'bold' }}>
-                            Branch: {branchName} | Version: {version}
+                            Version: {version}
                         </p>
                     </header>
                 </div>
