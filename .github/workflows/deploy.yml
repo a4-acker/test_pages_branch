@@ -2,12 +2,21 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main      # 需要部署的分支
+      - main
+
+env:
+  version: V0.0.1
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        run: echo "CURRENT_DATE=$(date +'%Y%m%d')" >> $GITHUB_ENV
+
+      - name: Set Branch Name
+        run: echo "VITE_BRANCH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+
       - name: Checkout branch
         uses: actions/checkout@v3
 
@@ -20,14 +29,6 @@ jobs:
         run: npm install
         working-directory: ./test_pages_branch 
 
-      - name: Compile TypeScript (scripts/exportEnv.ts)
-        run: npx tsc ./scripts/exportEnv.ts
-        working-directory: ./test_pages_branch 
-
-      - name: Generate dynamic environment variables
-        run: node scripts/exportEnv.js # 執行已編譯的 JavaScript 腳本
-        working-directory: .
-        
       - name: Build project
         run: npm run build
         working-directory: ./test_pages_branch
@@ -37,4 +38,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./test_pages_branch/dist
-          destination_dir: ${{ env.BASE_PATH }}
+          destination_dir: ${{ env.version }}_${{ env.CURRENT_DATE }}
