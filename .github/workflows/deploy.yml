@@ -4,19 +4,10 @@ on:
     branches:
       - main
 
-env:
-  version: V0.0.1
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Get current date
-        run: echo "CURRENT_DATE=$(date +'%Y%m%d')" >> $GITHUB_ENV
-
-      - name: Set Branch Name
-        run: echo "VITE_BRANCH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
-
       - name: Checkout branch
         uses: actions/checkout@v3
 
@@ -33,9 +24,15 @@ jobs:
         run: npm run build
         working-directory: ./test_pages_branch
 
+      - name: Get BASE_PATH
+        id: base_path
+        run: |
+          BASE_PATH=$(jq -r '.basePath' build-metadata.json)
+          echo "BASE_PATH=$BASE_PATH" >> $GITHUB_ENV
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./test_pages_branch/dist
-          destination_dir: ${{ env.version }}_${{ env.CURRENT_DATE }}
+          destination_dir: ${{ env.BASE_PATH }}

@@ -1,5 +1,3 @@
-// src/config.ts
-
 // 取得動態日期
 const getCurrentDate = (): string => {
     const now = new Date();
@@ -9,10 +7,10 @@ const getCurrentDate = (): string => {
     return `${year}${month}${day}`;
 };
 
-const version = 'V0.1.9'; 
-const repositoryName = 'test_pages_branch'; 
+// 動態生成配置
+const version = 'V0.1.9';
+const repositoryName = 'test_pages_branch';
 const date = getCurrentDate();
-
-const basePath = `${repositoryName}/${date}-${version}`; 
+const basePath = `${repositoryName}/${date}-${version}`;
 
 export { version, repositoryName, date, basePath };
