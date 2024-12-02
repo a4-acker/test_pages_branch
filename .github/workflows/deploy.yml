@@ -24,11 +24,11 @@ jobs:
         run: npm run build
         working-directory: ./test_pages_branch
 
-      - name: Get BASE_PATH
-        id: base_path
+      - name: Get PAGES_PATH
+        id: pages_path
         run: |
-          BASE_PATH=$(jq -r '.pagesPath' build-metadata.json)
-          echo "BASE_PATH=$BASE_PATH" >> $GITHUB_ENV
+          PAGES_PATH=$(jq -r '.pagesPath' build-metadata.json)
+          echo "PAGES_PATH=$PAGES_PATH" >> $GITHUB_ENV
         working-directory: ./test_pages_branch
 
       - name: Deploy to GitHub Pages
@@ -36,4 +36,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./test_pages_branch/dist
-          destination_dir: ${{ env.BASE_PATH }}
+          destination_dir: ${{ env.PAGES_PATH }}
