@@ -12,12 +12,9 @@ const getCurrentDate = (): string => {
 // 基本配置信息
 const version = 'V0.0.1'; // 專案版本
 const repositoryName = 'test_pages_branch'; // 專案名稱
-//const branchName = process.env.VITE_BRANCH_NAME || 'unknown'; // 從環境變數取得分支名稱
-const branchName = 'main';
-const date = getCurrentDate(); // 動態日期
+const date = getCurrentDate();
 
 // 組合路徑
-//const basePath = `${repositoryName}/${version}-${date}`; // 組合基底路徑
 const basePath = `${repositoryName}/${date}-${version}`; 
 
-export { version, repositoryName, branchName, date, basePath };
+export { version, repositoryName, date, basePath };
