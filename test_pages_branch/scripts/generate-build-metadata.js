@@ -20,8 +20,8 @@ const date = `${year}${month}${day}`;
 
  // const version = 'V0.1.9'; 從 package.json 或其他來源獲取版本
 const repositoryName = 'test_pages_branch';
-const basePath = `${repositoryName}/${date}-${version}`;
-const pagesPath = `${date}-${version}`;
+const pagesPath = `${date}-V${version}`;
+const basePath = `${repositoryName}/${pagesPath}`;
 
 // 寫入 `build-metadata.json`
 const outputPath = path.resolve(__dirname, '../build-metadata.json');
