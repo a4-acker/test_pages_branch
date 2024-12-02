@@ -46,4 +46,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # 動態設置部署目錄，組合版本與日期
           publish_dir: ./test_pages_branch/dist
-          destination_dir: ${{ env.version }}_${{ env.CURRENT_DATE }}
+          destination_dir: ${{ env.CURRENT_DATE }}-${{ env.version }}
