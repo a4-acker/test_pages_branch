@@ -25,9 +25,9 @@ jobs:
         working-directory: ./test_pages_branch 
 
       - name: Generate dynamic environment variables
-        run: node ./scripts/exportEnv.js # 執行已編譯的 JavaScript 腳本
-        working-directory: ./test_pages_branch 
-
+        run: node scripts/exportEnv.js # 執行已編譯的 JavaScript 腳本
+        working-directory: .
+        
       - name: Build project
         run: npm run build
         working-directory: ./test_pages_branch
